@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Students</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+<h1>Students</h1>
+
+<form method="GET">
+    <input type="text" name="search" placeholder="Search students..." value="{{ search }}">
+    <button type="submit">Search</button>
+</form>
+
+<a href="/add">Add Student</a>
+
+{% if students %}
+
+<table>
+<tr>
+<th>#</th>
+<th>Name</th>
+<th>Score</th>
+</tr>
+
+{% for name, score in students %}
+<tr>
+<td>{{ loop.index }}</td>
+<td><a href="/student/{{ name }}">{{ name }}</a></td>
+<td>{{ score }}</td>
+</tr>
+{% endfor %}
+
+</table>
+
+{% else %}
+<p>No students found</p>
+{% endif %}
+
+<a href="/">Home</a>
+
+</body>
+</html>

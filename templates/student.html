@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Student</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+{% if student %}
+
+<h1>{{ student.name }}</h1>
+
+<p>Score: {{ student.score }}</p>
+<p>Status: {{ student.status }}</p>
+
+{% else %}
+
+<h1>Student not found</h1>
+
+{% endif %}
+
+<a href="/students">Back to students</a>
+
+</body>
+</html>
